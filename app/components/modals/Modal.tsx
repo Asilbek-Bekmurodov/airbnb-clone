@@ -37,12 +37,11 @@ const Modal: React.FC<ModalProps> = ({
   const handleClose = useCallback(() => {
     if (disabled) {
       return;
-
-      setShowModal(false);
-      setTimeout(() => {
-        onClose();
-      }, 300);
     }
+    setShowModal(false);
+    setTimeout(() => {
+      onClose();
+    }, 300);
   }, [disabled, onClose]);
 
   const handleSubmit = useCallback(() => {
@@ -133,7 +132,6 @@ const Modal: React.FC<ModalProps> = ({
               "
               >
                 <button
-                  onClick={handleClose}
                   className="
                   border-0
                   p-1
@@ -143,6 +141,7 @@ const Modal: React.FC<ModalProps> = ({
                   left-9
                   cursor-pointer
                 "
+                  onClick={handleClose}
                 >
                   <IoMdClose size={18} />
                 </button>
@@ -176,6 +175,7 @@ const Modal: React.FC<ModalProps> = ({
                     label={actionLabel}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>
